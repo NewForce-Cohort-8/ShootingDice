@@ -15,7 +15,16 @@ public class Player
     {
         // Call roll for "this" object and for the "other" object
         int myRoll = Roll();
-        int otherRoll = other.Roll();
+        int otherRoll = 0;
+
+            if (other.GetType().ToString() == "ShootingDice.OneHigherPlayer")
+            {
+                otherRoll = myRoll + 1;
+            }
+            else
+            {
+            otherRoll = other.Roll();
+            }
 
         Console.WriteLine($"{Name} rolls a {myRoll}");
         Console.WriteLine($"{other.Name} rolls a {otherRoll}");
